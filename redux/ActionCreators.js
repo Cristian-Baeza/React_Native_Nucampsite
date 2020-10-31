@@ -178,3 +178,7 @@ newComment.date = new Date().toISOString();
   }, 2000);
 };
 
+export const deleteFavorite = campsiteId => ({
+  type: ActionTypes.DELETE_FAVORITE,
+  payload: campsiteId
+}); 
