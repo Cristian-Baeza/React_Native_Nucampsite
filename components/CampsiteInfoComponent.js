@@ -29,6 +29,10 @@ const mapDispatchToProps = {
 
 function RenderCampsite(props) {
 
+  // Week 3 WS
+
+  const recognizeComment = ({ dx }) => (dx > 200) ? true : false;
+
   const { campsite } = props;
 
   const view = React.createRef();
@@ -63,6 +67,9 @@ function RenderCampsite(props) {
           ],
           { cancelable: false }
         );
+      }
+      else if (recognizeComment(gestureState)) {
+        props.onShowModal()
       }
       return true;
     }
@@ -245,10 +252,10 @@ class CampsiteInfo extends Component {
             />
 
 
-            <View>
+            <View style={{ margin: 10 }}>
               <Button
                 title="Submit"
-                color='#5637dd'
+                color='#5637DD'
                 onPress={() => {
                   this.handleComment(campsiteId);
                   this.resetForm();
@@ -264,7 +271,7 @@ class CampsiteInfo extends Component {
                   this.toggleModal();
                   this.resetForm();
                 }}
-                color='#808080'
+                color='gray'
                 title='Cancel'
               />
             </View>
